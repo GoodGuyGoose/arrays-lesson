@@ -2,7 +2,7 @@
 
 //  Arrays are generally described as "list-like objects"
 
-//  They are basically single objects that contain multiple values stored in a list
+//  They are basically single object that contains multiple values stored in a list
 
 const furniture = ['couch', 'chair', 'carpet', 'stove', 'bed']
 
@@ -94,9 +94,14 @@ console.log(furniture)
 
 // But there are many other types of useful array methods like the .every method which checks if every item in an array passes a certain test
 
-let arr = ["pig", "3", "goat", "sheep"]
+let arr = ["pig", 3, "goat", "sheep"]
 
-console.log("passes.every: " + arr.every(item => typeof item === 'string'))
+console.log(arr.indexOf('sheep'))
+// return 3
+
+arr[arr.indexOf('sheep')]
+
+console.log("passes.every: " + arr.every((item) => typeof item === 'string'))
 
 // With .filter we can create an array with only the items we filter for
 
@@ -105,6 +110,17 @@ arr = ["pig", 3, "goat", "sheep"]
 console.log("filtered for string: " + arr.filter(item => typeof item === 'string'))
 // here we use the filter method on an arr to filter for strings only
 
+let newArr = arr.filter(item => typeof item === 'string')
+
+const body = document.querySelector('body')
+arr.concat(newArr)
+arr.forEach(item => {
+  let div = document.createElement('div')
+  div.textContent = item
+  body.appendChild(div)
+})
+
+// ["pig", 3, "goat", "sheep", "pig", "goat", "sheep"]
 
 // heres an example of declaring you're filter function seperately from the method
 const ages = [32, 33, 16, 40];
@@ -114,3 +130,18 @@ ages.filter(checkAdult)    // Returns [32, 33, 40]
 function checkAdult(age) {
   return age >= 18;
 }
+
+
+// -----------------------------------------
+//  EXERCISES
+// -----------------------------------------
+
+// READ MORE ABOUT .sort, .filter, .map and .reduce methods in the following link:
+// https://www.w3schools.com/jsref/jsref_obj_array.asp
+
+// Complete the Array Cardio Day 1 Project on the javascript 30 page:
+// https://javascript30.com/
+
+// Once complete continue with another project that strikes your interested.  
+// Make use of concepts that you aren't fimiliar with in another project of your own
+// making so you can practice using them.
